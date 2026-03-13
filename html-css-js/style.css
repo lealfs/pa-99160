@@ -1,6 +1,95 @@
-/* reset do navegador  */
-* {
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto:wght@400;900&display=swap');
+
+body {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: radial-gradient(circle, #2c3e50, #000000); /* Fundo escuro profundo */
+    font-family: 'Roboto', sans-serif;
+    color: white;
+}
+
+.container {
+    background: rgba(20, 20, 20, 0.95);
+    padding: 30px;
+    border-radius: 5px;
+    border-left: 5px solid #ffcc00; /* Detalhe amarelo Free Fire */
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5), 10px 10px 0px rgba(255, 204, 0, 0.1);
+    text-align: center;
+    width: 350px;
+    text-transform: uppercase;
+}
+
+h1 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.8rem;
+    color: #ffcc00;
+    margin-bottom: 25px;
+    letter-spacing: 2px;
+    text-shadow: 2px 2px #ff0000; /* Sombra vermelha clássica */
+}
+
+label {
+    display: block;
+    font-size: 0.9rem;
+    margin-bottom: 10px;
+    color: #bbb;
+}
+
+input {
+    width: 80%;
+    padding: 12px;
+    background: #1a1a1a;
+    border: 1px solid #444;
+    color: #ffcc00;
+    font-size: 1.1rem;
+    font-family: 'Orbitron', sans-serif;
+    text-align: center;
+    margin-bottom: 20px;
+    outline: none;
+    transition: 0.3s;
+}
+
+input:focus {
+    border-color: #ffcc00;
+    box-shadow: 0 0 10px rgba(255, 204, 0, 0.3);
+}
+
+button {
+    width: 90%;
+    padding: 15px;
+    background: linear-gradient(45deg, #ffcc00, #ff9900);
+    border: none;
+    color: black;
+    font-weight: 900;
+    font-family: 'Orbitron', sans-serif;
+    cursor: pointer;
+    clip-path: polygon(10% 0, 100% 0, 90% 100%, 0% 100%); /* Corte estilo interface de jogo */
+    transition: 0.2s;
+}
+
+button:hover {
+    transform: scale(1.05);
+    background: linear-gradient(45deg, #fff, #ffcc00);
+    box-shadow: 0 0 15px #ffcc00;
+}
+
+#resultadotabuada {
+    margin-top: 25px;
+    background: rgba(255, 255, 255, 0.05);
+    padding: 15px;
+    border-radius: 4px;
+    font-family: 'Orbitron', sans-serif;
+    line-height: 1.8;
+    color: #eee;
+    text-shadow: 1px 1px black;
+}
+
+/* Estilizando cada linha da tabuada */
+#resultadotabuada p {
+    margin: 5px 0;
+    border-bottom: 1px solid rgba(255, 204, 0, 0.1);
 }
