@@ -6,103 +6,95 @@ const JogadorForm = ({ onAdicionar }) => {
   const [idade, setIdade] = useState('');
   const [numero, setNumero] = useState('');
   const [pe, setPe] = useState('');
+  const [nacionalidade, setNacionalidade] = useState('');
+  const [habilidade, setHabilidade] = useState('');
+  const [bio, setBio] = useState('');
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Verifica se todos os campos foram preenchidos, incluindo os novos selects
-    if (!nome || !posicao || !idade || !numero || !pe) {
-      alert("Por favor, selecione todas as opções!");
+    if (!nome || !posicao || !idade || !numero || !pe || !nacionalidade || !habilidade || !bio) {
+      alert("Por favor, preencha todos os dados do scout!");
       return;
     }
     
-    onAdicionar({ nome, posicao, idade, numero, pe });
+    onAdicionar({ nome, posicao, idade, numero, pe, nacionalidade, habilidade, bio });
     
-    // Reseta o formulário
-    setNome('');
-    setPosicao('');
-    setIdade('');
-    setNumero('');
-    setPe('');
+    // Limpar campos
+    setNome(''); setPosicao(''); setIdade(''); setNumero(''); 
+    setPe(''); setNacionalidade(''); setHabilidade(''); setBio('');
   };
 
   return (
     <form onSubmit={handleSubmit} style={styles.form}>
-      {/* Nome continua texto para liberdade total */}
       <input 
-        style={styles.input}
-        placeholder="Nome do Jogador" 
+        style={styles.input} 
+        placeholder="Nome do Craque" 
         value={nome} 
         onChange={(e) => setNome(e.target.value)} 
       />
-
-      {/* Seleção de Posição */}
-      <select 
+      
+      {/* Nacionalidade agora é um campo de texto livre */}
+      <input 
         style={styles.input} 
-        value={posicao} 
-        onChange={(e) => setPosicao(e.target.value)}
-      >
-        <option value="">Selecione a Posição</option>
-        <option value="Goleiro">Goleiro</option>
-        <option value="Zagueiro">Zagueiro</option>
-        <option value="Lateral">Lateral</option>
-        <option value="Meio-Campo">Meio-Campo</option>
-        <option value="Atacante">Atacante</option>
-      </select>
-
+        placeholder="Nacionalidade (ex: Brasileiro)" 
+        value={nacionalidade} 
+        onChange={(e) => setNacionalidade(e.target.value)} 
+      />
+      
       <div style={styles.row}>
-        <input 
-          type="number"
-          style={{...styles.input, flex: 1}}
-          placeholder="Idade" 
-          value={idade} 
-          onChange={(e) => setIdade(e.target.value)} 
-        />
-        <input 
-          type="number"
-          style={{...styles.input, flex: 1}}
-          placeholder="Nº Camisa" 
-          value={numero} 
-          onChange={(e) => setNumero(e.target.value)} 
-        />
+        <select style={styles.select} value={habilidade} onChange={(e) => setHabilidade(e.target.value)}>
+          <option value="">Atributo Principal</option>
+          <option value="Velocidade">Velocidade</option>
+          <option value="Finalização">Finalização</option>
+          <option value="Passe Longo">Passe Longo</option>
+          <option value="Drible">Drible</option>
+          <option value="Defesa">Defesa</option>
+          <option value="Visão de Jogo">Visão de Jogo</option>
+        </select>
+        
+        <select style={styles.select} value={posicao} onChange={(e) => setPosicao(e.target.value)}>
+          <option value="">Posição</option>
+          <option value="Goleiro">Goleiro</option>
+          <option value="Zagueiro">Zagueiro</option>
+          <option value="Meio">Meio</option>
+          <option value="Atacante">Atacante</option>
+        </select>
       </div>
 
-      {/* Seleção de Pé Dominante */}
-      <select 
-        style={styles.input} 
-        value={pe} 
-        onChange={(e) => setPe(e.target.value)}
-      >
-        <option value="">Pé Dominante</option>
-        <option value="Canhoto">Canhoto (Esquerdo)</option>
-        <option value="Destro">Destro (Direito)</option>
-        <option value="Ambidestro">Ambidestro</option>
-      </select>
+      <div style={styles.row}>
+        <select style={styles.select} value={pe} onChange={(e) => setPe(e.target.value)}>
+          <option value="">Pé</option>
+          <option value="Canhoto">Canhoto</option>
+          <option value="Destro">Destro</option>
+        </select>
+        <input type="number" style={styles.inputSmall} placeholder="Idade" value={idade} onChange={(e) => setIdade(e.target.value)} />
+      </div>
 
-      <button type="submit" style={styles.button}>Cadastrar no Barça</button>
+      <div style={styles.row}>
+        <input type="number" style={{...styles.input, width: '100%'}} placeholder="Nº Camisa" value={numero} onChange={(e) => setNumero(e.target.value)} />
+      </div>
+
+      <textarea 
+        style={styles.textarea} 
+        placeholder="Minibio (resumo de 2 linhas)..." 
+        value={bio} 
+        onChange={(e) => setBio(e.target.value)}
+        rows="2"
+      />
+
+      <button type="submit" style={styles.button}>CADASTRAR NO ELENCO</button>
     </form>
   );
 };
 
 const styles = {
-  form: { display: 'flex', flexDirection: 'column', gap: '10px', marginBottom: '20px' },
-  row: { display: 'flex', gap: '10px' },
-  input: { 
-    padding: '12px', 
-    borderRadius: '6px', 
-    border: '1px solid #ccc',
-    backgroundColor: '#fff',
-    fontSize: '14px'
-  },
-  button: { 
-    padding: '12px', 
-    backgroundColor: '#004d98', 
-    color: 'white', 
-    border: 'none', 
-    cursor: 'pointer', 
-    fontWeight: 'bold',
-    borderRadius: '6px',
-    marginTop: '5px'
-  }
+  form: { display: 'flex', flexDirection: 'column', gap: '8px' },
+  row: { display: 'flex', gap: '8px' },
+  input: { padding: '10px', borderRadius: '6px', border: '1px solid #ddd', fontSize: '14px' },
+  inputSmall: { padding: '10px', borderRadius: '6px', border: '1px solid #ddd', width: '50%' },
+  select: { padding: '10px', borderRadius: '6px', border: '1px solid #ddd', width: '50%', backgroundColor: '#fff', fontSize: '14px' },
+  textarea: { padding: '10px', borderRadius: '6px', border: '1px solid #ddd', resize: 'none', fontFamily: 'sans-serif', fontSize: '14px' },
+  button: { padding: '12px', backgroundColor: '#a50044', color: '#fff', border: 'none', borderRadius: '6px', fontWeight: 'bold', cursor: 'pointer', marginTop: '5px' }
 };
 
 export default JogadorForm;

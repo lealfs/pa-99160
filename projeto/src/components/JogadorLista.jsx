@@ -2,63 +2,56 @@ import React from 'react';
 
 const JogadorLista = ({ jogadores }) => {
   return (
-    <div style={styles.container}>
-      <h3 style={{color: '#333', fontSize: '1.1rem'}}>Plantel Atual</h3>
-      <ul style={styles.list}>
-        {jogadores.map((j, index) => (
-          <li key={index} style={styles.item}>
-            <div style={styles.mainInfo}>
-              <span style={styles.badge}>{j.numero}</span>
-              <div>
-                <strong style={styles.nomeText}>{j.nome}</strong>
-                <div style={styles.subText}>{j.posicao} • {j.idade} anos</div>
-              </div>
+    <div style={{ marginTop: '20px' }}>
+      {jogadores.map((j, index) => (
+        <div key={index} style={styles.card}>
+          <div style={styles.header}>
+            <div style={styles.num}>{j.numero}</div>
+            <div style={{ flex: 1 }}>
+              <div style={styles.nome}>{j.nome.toUpperCase()}</div>
+              <div style={styles.subInfo}>{j.nacionalidade} • {j.posicao} • {j.idade} anos</div>
             </div>
-            <div style={styles.peTag}>
-              {j.pe}
-            </div>
-          </li>
-        ))}
-      </ul>
+            <div style={styles.habilidadeTag}>{j.habilidade}</div>
+          </div>
+          
+          <div style={styles.bioBox}>
+            <strong>Bio:</strong> {j.bio}
+          </div>
+          
+          <div style={styles.footer}>
+            <span>Pé Dominante: <strong>{j.pe}</strong></span>
+          </div>
+        </div>
+      ))}
     </div>
   );
 };
 
 const styles = {
-  container: { marginTop: '20px' },
-  list: { listStyle: 'none', padding: 0 },
-  item: { 
-    padding: '12px', 
+  card: {
     backgroundColor: '#fff',
-    borderBottom: '1px solid #eee', 
-    display: 'flex', 
-    justifyContent: 'space-between',
-    alignItems: 'center',
+    borderRadius: '10px',
+    padding: '15px',
+    marginBottom: '15px',
+    borderLeft: '5px solid #004d98',
+    boxShadow: '0 4px 12px rgba(0,0,0,0.08)'
   },
-  mainInfo: { display: 'flex', alignItems: 'center', gap: '12px' },
-  badge: {
-    backgroundColor: '#a50044',
-    color: 'white',
-    width: '30px',
-    height: '30px',
-    borderRadius: '50%',
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-    fontSize: '0.85em',
-    fontWeight: 'bold'
+  header: { display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '10px' },
+  num: {
+    backgroundColor: '#004d98', color: '#edbb00', width: '35px', height: '35px',
+    borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 'bold'
   },
-  nomeText: { fontSize: '1rem', color: '#1a1a1a' },
-  subText: { fontSize: '0.8rem', color: '#666' },
-  peTag: {
-    fontSize: '0.75rem',
-    textTransform: 'uppercase',
-    padding: '4px 8px',
-    backgroundColor: '#f0f0f0',
-    borderRadius: '12px',
-    color: '#444',
-    fontWeight: 'bold'
-  }
+  nome: { fontWeight: 'bold', fontSize: '16px', color: '#333' },
+  subInfo: { fontSize: '12px', color: '#666' },
+  habilidadeTag: {
+    fontSize: '9px', backgroundColor: '#edbb00', color: '#000',
+    padding: '4px 8px', borderRadius: '4px', fontWeight: 'bold', textTransform: 'uppercase'
+  },
+  bioBox: {
+    fontSize: '13px', color: '#444', fontStyle: 'italic',
+    padding: '8px', backgroundColor: '#f9f9f9', borderRadius: '4px', border: '1px solid #eee'
+  },
+  footer: { marginTop: '10px', fontSize: '11px', color: '#888', textAlign: 'right' }
 };
 
 export default JogadorLista;

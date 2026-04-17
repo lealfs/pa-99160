@@ -2,6 +2,9 @@ import React, { useState } from 'react';
 import JogadorForm from './components/JogadorForm';
 import JogadorLista from './components/JogadorLista';
 
+// 1. Importa a imagem da pasta assets
+import logoBarca from './assets/barca.png'; 
+
 function App() {
   const [jogadores, setJogadores] = useState([]);
 
@@ -10,53 +13,77 @@ function App() {
   };
 
   return (
-    <div style={styles.app}>
-      {/* AREA DA LOGO - O SEGREDO ESTÁ AQUI */}
-      <div style={styles.logoContainer}>
-        <img 
-          src="https://upload.wikimedia.org/wikipedia/pt/thumb/4/43/FCBarcelona.png/150px-FCBarcelona.png" 
-          alt="Escudo do Barcelona" 
-          style={styles.logo}
-        />
-      </div>
+    <div style={styles.page}>
+      <div style={styles.container}>
+        <div style={styles.logoWrapper}>
+          {/* 2. Troca o src pela variável logoBarca */}
+          <img 
+            src={logoBarca} 
+            alt="Logo Barcelona" 
+            style={styles.logo}
+          />
+        </div>
 
-      <h1 style={styles.title}>Plantel do Barça</h1>
-      
-      <JogadorForm onAdicionar={adicionarJogador} />
-      <JogadorLista jogadores={jogadores} />
+        <h1 style={styles.title}>BARÇA MANAGER</h1>
+        <p style={styles.subtitle}>Més que un club</p>
+        
+        <JogadorForm onAdicionar={adicionarJogador} />
+        <JogadorLista jogadores={jogadores} />
+      </div>
     </div>
   );
 }
 
+// ... (resto dos seus estilos permanecem iguais)
 const styles = {
-  app: {
-    maxWidth: '450px',
-    margin: '30px auto',
-    padding: '20px',
-    borderRadius: '15px',
-    fontFamily: 'sans-serif',
-    backgroundColor: '#fff',
-    boxShadow: '0 8px 20px rgba(0,0,0,0.2)',
-  },
-  logoContainer: {
+  page: {
+    margin: 0,
+    padding: 0,
+    minHeight: '100vh',
+    width: '100vw',
+    background: 'linear-gradient(180deg, #004d98 0%, #a50044 100%)',
     display: 'flex',
-    justifyContent: 'center', // Centraliza na horizontal
-    alignItems: 'center',     // Centraliza na vertical
-    width: '100%',
-    marginBottom: '20px',
+    justifyContent: 'center',
+    alignItems: 'center',
+    position: 'absolute',
+    top: 0,
+    left: 0
+  },
+  container: {
+    width: '90%',
+    maxWidth: '420px',
+    backgroundColor: '#ffffff',
+    borderRadius: '20px',
+    padding: '25px',
+    boxShadow: '0 10px 40px rgba(0,0,0,0.5)',
+    margin: '20px auto'
+  },
+  logoWrapper: {
+    display: 'flex',
+    justifyContent: 'center',
+    marginBottom: '10px'
   },
   logo: {
-    width: '120px',           // Tamanho definido
+    width: '100px',
     height: 'auto',
-    display: 'block',         // Garante que se comporte como bloco
+    filter: 'drop-shadow(0 4px 6px rgba(0,0,0,0.2))'
   },
   title: {
     textAlign: 'center',
     color: '#004d98',
-    marginBottom: '20px',
     fontSize: '22px',
-    fontWeight: '800',
-    textTransform: 'uppercase'
+    fontWeight: '900',
+    margin: '10px 0 0 0',
+    fontFamily: 'sans-serif'
+  },
+  subtitle: {
+    textAlign: 'center',
+    color: '#a50044',
+    fontSize: '11px',
+    fontWeight: 'bold',
+    textTransform: 'uppercase',
+    marginBottom: '20px',
+    letterSpacing: '2px'
   }
 };
 
