@@ -1,0 +1,56 @@
+/* Container principal - Fundo cinza super escuro */
+.principal-container {
+  background-color: #0b0d10; 
+  min-height: 100vh;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Estilo do título superior */
+.principal-header {
+  padding: 20px 30px;
+}
+
+.principal-header h1 {
+  color: #e2e8f0;
+  font-size: 2rem;
+  font-weight: 900;
+  margin: 0;
+  letter-spacing: -0.5px;
+}
+
+/* Linha separadora com gradiente (Ciano para Roxo) */
+.gradient-line {
+  height: 2px;
+  width: 100%;
+  background: linear-gradient(90deg, #00f2fe 0%, #8b5cf6 100%);
+  box-shadow: 0 1px 5px rgba(0, 242, 254, 0.2);
+}
+
+/* Caixa preta de informações estilo "rodapé" */
+.info-box {
+  background-color: #050505; /* Preto quase absoluto */
+  padding: 40px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px; /* Espaçamento entre os parágrafos */
+}
+
+/* Texto geral da info-box */
+.company-info, 
+.address, 
+.copyright {
+  margin: 0;
+  color: #64748b; /* Cinza médio/escuro */
+  font-size: 0.95rem;
+}
+
+/* Destaque no nome da empresa (Branco com leve brilho) */
+.company-info .highlight {
+  color: #ffffff;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+  text-shadow: 0 0 8px rgba(139, 92, 246, 0.4); /* Leve brilho roxo como na imagem */
+}

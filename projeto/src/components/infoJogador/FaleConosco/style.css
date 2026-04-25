@@ -1,0 +1,25 @@
+div {
+    min-height: 70vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 2rem;
+}
+
+h1 {
+    font-size: 4rem;
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    /* Efeito de Neon Ciano intenso */
+    text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 20px #00ffff, 0 0 40px #00ffff, 0 0 80px #00ffff;
+    animation: pulsar 2s infinite alternate;
+}
+
+/* Pequena animação para dar "vida" ao brilho */
+@keyframes pulsar {
+    0% { opacity: 0.8; }
+    100% { opacity: 1; text-shadow: 0 0 10px #fff, 0 0 20px #00ffff, 0 0 60px #00ffff; }
+}

@@ -1,0 +1,54 @@
+header {
+    background-color: #121212;
+    border-bottom: 2px solid #8a2be2; /* Roxo Neon */
+    padding: 1rem 2rem;
+    box-shadow: 0 0 15px rgba(138, 43, 226, 0.4);
+}
+
+header > div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+header a {
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+header img {
+    height: 45px;
+    filter: drop-shadow(0 0 5px #00ffff); /* Sombra brilhante na logo */
+}
+
+header span {
+    color: #fff;
+    font-weight: 700;
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-shadow: 0 0 8px #00ffff; /* Ciano Neon */
+}
+
+nav {
+    display: flex;
+    gap: 2rem;
+}
+
+nav a {
+    color: #888;
+    font-size: 1.2rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+}
+
+nav a:hover, 
+nav a.active {
+    color: #fff;
+    text-shadow: 0 0 10px #8a2be2, 0 0 20px #8a2be2;
+}
